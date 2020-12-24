@@ -1,0 +1,45 @@
+<p> </p>
+<p></p>
+<div class="container-lg" >
+  <div class="card">
+    <div class="card-header" style="font-size: xx-large">
+      Liste des conferences :
+    </div>
+    <div class="card-body">
+      <div class="row justify-content-between">
+        <button type="button" class="btn btn-outline-success justify-content-start " routerLink="/conference">+Ajouter</button>
+        <form #f="ngForm" class="form-inline justify-content-end " (ngSubmit)="onChercher(f.value)">
+          <input ngModel class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword" [(ngModel)]="keyword">
+          <button [disabled]="!f.valid" class="btn btn-outline-primary my-4 my-sm-0" type="submit" >Search</button>
+        </form>
+      </div>
+      <div>
+        <p></p>
+        <div class="table-responsive">
+          <table class="table table-hover table-light">
+            <thead>
+            <tr>
+              <th scope="col"> Nom Conférences </th>
+              <th scope="col"> Periode </th>
+              <th scope="col">  </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let f of listConferences" >
+              <td>{{f.conferenceName}}</td>
+              <td>{{f.periode}}</td>
+              <td><button class="btn btn-outline-warning" routerLink="/edit-conference" (click)="onEditConf(f)" >Editer</button></td>
+              <td><button class="btn btn-outline-danger" (click)="onDeleteConf(f)" routerLink="">Delete</button></td>
+              <td *ngIf="listConferences">
+                <button class="btn btn-outline-info" (click)="onGetEvents(f)" routerLink="/events" >Liste des événements</button></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+<p></p>
+
+

@@ -1,0 +1,39 @@
+<p></p>
+<div class="container container-fluid">
+  <div class="col-md-10 col-sm-7">
+    <div class="card justify-content-center ">
+      <div class="card-header bg-light" style=" font-size:larger;"> Event Editor :</div>
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onEditEvent(f.value)">
+          <div class="form-row">
+            <div class="form-group  col-md-8">
+              <label for="inputId"> ID Event :</label>
+              <input id="inputId" type="number" readonly class="form-control" [(ngModel)]="this.currentEvent.idConfEvent" name="idConfEvent" ngModel >
+              <span></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group  col-md-8">
+              <label for="inputTitle"> Title :</label>
+              <input id="inputTitle" type="text" class="form-control" [(ngModel)]="this.currentEvent.title" name="title" required="required" ngModel >
+              <span></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="inputPeriode"> Date :</label>
+              <input type="date" class="form-control" id="inputPeriode" name="date" [(ngModel)]="this.currentEvent.date"  required="required" ngModel >
+              <span></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <button [disabled]="!f.valid" type="submit" class="btn btn-outline-primary btn-group-lg"> Update </button>
+            </div>
+          </div>
+        </form>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>

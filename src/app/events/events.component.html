@@ -1,0 +1,43 @@
+<p> </p>
+<div class="container-md" >
+  <div class="card">
+    <div class="card-header" style="font-size: xx-large">
+      Liste des événements de <strong> {{currentConference.conferenceName}} </strong> :
+    </div>
+    <div class="card-body">
+      <div class="card-body">
+        <div>
+        <div class="row justify-content-between">
+          <button type="button" class="btn btn-outline-success justify-content-start " routerLink="/event">+Add Event</button>
+          <form #f="ngForm" class="form-inline justify-content-end " (ngSubmit)="onSearchEvent(f.value)">
+            <input ngModel class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword" [(ngModel)]="keyword">
+            <button [disabled]="!f.valid" class="btn btn-outline-primary my-4 my-sm-0" type="submit" >Search</button>
+          </form>
+        </div>
+
+        <p></p>
+      <div class="table-responsive">
+        <table class="table table-hover" >
+          <thead class="thead-light">
+          <tr>
+            <th scope="col"> Titre event </th>
+            <th scope="col"> Date </th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let f of listEvents" >
+            <td>{{f.title}}</td>
+            <td>{{f.date | date: 'dd MMMM yyyy'}}</td>
+            <td><button class="btn btn-outline-warning" routerLink="" (click)="onEditEvent(f)" >Update</button></td>
+            <td><button class="btn btn-outline-danger" (click)="onDeleteEvent(f)" routerLink="/events">Delete</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

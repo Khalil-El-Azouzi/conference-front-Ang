@@ -1,0 +1,32 @@
+<p></p>
+<div class="container col-md-8 col-xs-12">
+  <div class="card ">
+    <div class="card-header bg-secondary h2" style=" font-size:larger; color: aqua;">Enter the Event Details :</div>
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onAddEvent(f.value)">
+        <div class="form-row">
+          <div class="form-group  col-md-8">
+            <label for="inputTitle"> Title :</label>
+            <input type="text" class="form-control" id="inputTitle" name="title" required="required" ngModel>
+            <span></span>
+          </div>
+        </div>
+        <div class="form-row" >
+          <div class="form-group col-md-8">
+            <label for="inputDate"> Date :</label>
+            <input type="date"  class="form-control" id="inputDate" name="date" required="required" ngModel >
+            <span></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <button [disabled]="!f.valid" type="submit" class="btn btn-outline-success btn-group-lg"> Add </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
